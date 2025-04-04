@@ -8,7 +8,8 @@ metatrader_version="5.0.36"
 mt5server_port="8001"
 mono_url="https://dl.winehq.org/wine/wine-mono/8.0.0/wine-mono-8.0.0-x86.msi"
 python_url="https://www.python.org/ftp/python/3.9.0/python-3.9.0.exe"
-mt5setup_url="https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe"
+mt5setup_url="https://download.mql5.com/cdn/web/20248/mt5/hfmarketske5setup.exe"
+# mt5setup_url="https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe"
 
 # Function to display a graphical message
 show_message() {
@@ -59,7 +60,8 @@ else
     # Set Windows 10 mode in Wine and download and install MT5
     $wine_executable reg add "HKEY_CURRENT_USER\\Software\\Wine" /v Version /t REG_SZ /d "win10" /f
     show_message "[3/7] Downloading MT5 installer..."
-    curl -o /config/.wine/drive_c/mt5setup.exe $mt5setup_url
+    # curl -o /config/.wine/drive_c/mt5setup.exe $mt5setup_url
+    cp ../mt5.exe /config/.wine/drive_c/mt5setup.exe
     show_message "[3/7] Installing MetaTrader 5..."
     $wine_executable "/config/.wine/drive_c/mt5setup.exe" "/auto" &
     wait

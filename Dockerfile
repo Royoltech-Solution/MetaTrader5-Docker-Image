@@ -1,5 +1,4 @@
 FROM ghcr.io/linuxserver/baseimage-kasmvnc:debianbullseye
-
 # set version label
 ARG BUILD_DATE
 ARG VERSION
